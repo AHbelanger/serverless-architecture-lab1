@@ -57,8 +57,12 @@ namespace TollBooth
 
                         // Upload blob.
                         stream.Position = 0;
-                        // TODO 7: Asynchronously upload the blob from the memory stream.
-                        // COMPLETE: await blob...;
+
+                        await Send("savePlateData", "TollBooth/CustomerService", data);
+
+                        await blob.UploadFromStreamAsync(stream);
+
+
 
                         successful = true;
                     }
